@@ -1,0 +1,56 @@
+---
+import { site } from "../data/site";
+---
+
+<section id="top" class="relative overflow-hidden">
+  <div
+    class="pointer-events-none absolute inset-0 opacity-[0.55] no-print"
+    style="background:
+      radial-gradient(60rem 40rem at 70% -10%, rgba(91,140,255,0.10), transparent 60%),
+      radial-gradient(50rem 40rem at 10% 10%, rgba(212,255,63,0.08), transparent 55%);"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="wrap relative flex min-h-[92vh] flex-col justify-center pt-28 pb-20">
+    <p class="eyebrow reveal">AI Visibility · Custom Systems · AI Strategy</p>
+
+    <h1
+      class="reveal mt-6 max-w-5xl text-balance text-5xl font-extrabold leading-[0.98] tracking-tightest sm:text-7xl lg:text-[5.5rem]"
+    >
+      Make machines<br />
+      <span class="text-bone-300">understand</span> your brand.
+    </h1>
+
+    <p class="reveal mt-8 max-w-2xl text-lg leading-relaxed text-bone-300 print-muted">
+      When your customer asks ChatGPT, Perplexity, or Google's AI for a
+      recommendation, your name should be in the answer. NoorRank architects the
+      authority that puts it there — and builds the systems you own.
+    </p>
+
+    <div class="reveal mt-10 flex flex-wrap items-center gap-4">
+      <a
+        href="#contact"
+        class="rounded-full bg-signal px-6 py-3 text-sm font-semibold text-ink-900 transition-opacity hover:opacity-90"
+      >
+        Start with a Conversation
+      </a>
+      <a
+        href="#proof"
+        class="rounded-full border border-bone-500/25 px-6 py-3 text-sm font-medium text-bone-100 transition-colors hover:border-bone-300"
+      >
+        See the proof →
+      </a>
+    </div>
+
+    <div
+      class="reveal mt-16 flex flex-wrap items-center gap-x-8 gap-y-2 font-mono text-xs text-bone-500"
+    >
+      <span>{site.tagline}</span>
+      <span class="hidden sm:inline">·</span>
+      <span>Aakarsh &amp; Devika</span>
+      <span class="hidden sm:inline">·</span>
+      <span>{site.location} · {site.reach}</span>
+    </div>
+  </div>
+</section>

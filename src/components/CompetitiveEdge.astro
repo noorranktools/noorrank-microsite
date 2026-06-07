@@ -1,0 +1,59 @@
+---
+import { matrix } from "../data/site";
+
+const isPlain = (v: string) => v === "✕" || v === "N/A" || v === "Partial" || v === "Limited" || v === "Varies";
+---
+
+<section id="edge" class="border-t border-bone-500/10 py-24 md:py-32">
+  <div class="wrap">
+    <p class="eyebrow reveal">Competitive Edge</p>
+    <h2 class="reveal mt-5 max-w-3xl text-3xl font-bold tracking-tight sm:text-5xl">
+      Not SEO. Not schema. NoorRank.
+    </h2>
+
+    <div class="reveal mt-14 overflow-x-auto rounded-2xl border border-bone-500/15">
+      <table class="w-full min-w-[640px] border-collapse text-left text-sm">
+        <thead>
+          <tr class="bg-ink-700">
+            <th class="p-4 font-medium text-bone-500"></th>
+            {
+              matrix.columns.map((c, i) => (
+                <th
+                  class={`p-4 font-semibold ${i === matrix.columns.length - 1 ? "text-signal" : "text-bone-300"}`}
+                >
+                  {c}
+                </th>
+              ))
+            }
+          </tr>
+        </thead>
+        <tbody>
+          {
+            matrix.rows.map((row) => (
+              <tr class="border-t border-bone-500/10 odd:bg-ink-800/40">
+                <th scope="row" class="p-4 font-medium text-bone-100 print-muted">
+                  {row.feature}
+                </th>
+                {row.values.map((v, i) => {
+                  const last = i === row.values.length - 1;
+                  return (
+                    <td
+                      class={`p-4 ${last ? "font-medium text-signal" : isPlain(v) ? "text-bone-500" : "text-bone-300"}`}
+                    >
+                      {last ? `✓ ${v}` : v}
+                    </td>
+                  );
+                })}
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <blockquote class="reveal mt-10 max-w-3xl text-xl font-medium italic text-bone-100 print-muted">
+      "We don't optimise for search engines. We architect authority for answer
+      engines."
+    </blockquote>
+  </div>
+</section>

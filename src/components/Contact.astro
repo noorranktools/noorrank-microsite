@@ -1,0 +1,62 @@
+---
+import { site } from "../data/site";
+---
+
+<section id="contact" class="border-t border-bone-500/10 py-24 md:py-36">
+  <div class="wrap">
+    <p class="eyebrow reveal">Start with a Conversation</p>
+    <h2
+      class="reveal mt-6 max-w-4xl text-balance text-4xl font-extrabold leading-[1.02] tracking-tightest sm:text-6xl"
+    >
+      Machines understand.<br />
+      <span class="text-bone-400">The rest will quietly disappear from the conversation.</span>
+    </h2>
+
+    <div
+      class="reveal mt-12 rounded-2xl border border-bone-500/15 bg-ink-800 p-6 font-mono text-sm print-card"
+    >
+      <div class="flex items-center gap-2 text-bone-500" aria-hidden="true">
+        <span class="h-2.5 w-2.5 rounded-full bg-bone-500/40"></span>
+        <span class="h-2.5 w-2.5 rounded-full bg-bone-500/40"></span>
+        <span class="h-2.5 w-2.5 rounded-full bg-bone-500/40"></span>
+      </div>
+      <div class="mt-5 space-y-2">
+        <p>
+          <span class="text-signal-dim">→</span> email
+          <span class="text-bone-500">·</span>
+          <a
+            href={`mailto:${site.email}`}
+            class="text-bone-50 underline-offset-4 hover:underline">{site.email}</a
+          >
+        </p>
+        <p>
+          <span class="text-signal-dim">→</span> web
+          <span class="text-bone-500">·</span>
+          <a
+            href={`https://${site.url.replace("https://", "")}`}
+            class="text-bone-50 underline-offset-4 hover:underline"
+            rel="noopener">noorrank.com</a
+          >
+        </p>
+        <p>
+          <span class="text-signal-dim">→</span> base
+          <span class="text-bone-500">·</span>
+          <span class="text-bone-50">{site.location} · Worldwide</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="reveal mt-10">
+      <a
+        href={`mailto:${site.email}`}
+        class="inline-block rounded-full bg-signal px-7 py-3.5 text-sm font-semibold text-ink-900 transition-opacity hover:opacity-90"
+      >
+        Start with a Conversation
+      </a>
+    </div>
+
+    <p class="mt-16 font-mono text-xs uppercase tracking-[0.3em] text-bone-500">
+      Rank by Design, Not by Chance
+    </p>
+  </div>
+</section>

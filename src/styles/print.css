@@ -1,0 +1,38 @@
+/* Boardroom / projector export. Print this site to a clean PDF. */
+@media print {
+  :root {
+    color-scheme: light;
+  }
+  html,
+  body {
+    background: #ffffff !important;
+    color: #101018 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    padding-top: 1.25rem !important;
+    padding-bottom: 1.25rem !important;
+    border-top: 1px solid #d8d4ca;
+  }
+  .eyebrow {
+    color: #6b7280 !important;
+  }
+  .print-muted {
+    color: #374151 !important;
+  }
+  .print-card {
+    border: 1px solid #d8d4ca !important;
+    background: #f7f5f0 !important;
+  }
+  a[href]::after {
+    content: "";
+  }
+}
