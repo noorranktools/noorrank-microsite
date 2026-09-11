@@ -1,0 +1,39 @@
+---
+// Deck-style frame for one profile slide. On wide screens it's a 16:9 slide
+// that snaps into view; on phones and portrait tablets it's a card at natural
+// height. It never clips: if content is taller than 16:9, the slide grows.
+// Slide numbers come from the CSS counter in global.css (the cover is 01).
+interface Props {
+  id: string;
+}
+const { id } = Astro.props;
+---
+
+<section
+  id={id}
+  class="deck-slide px-4 py-3 md:px-10 deck:flex deck:min-h-[100svh] deck:snap-start deck:items-center deck:justify-center"
+>
+  <div
+    class="slide-frame print-slide relative mx-auto flex w-full max-w-[76rem] flex-col rounded-xl border border-bone-500/25 bg-black shadow-2xl shadow-black/60 deck:aspect-video deck:w-[min(100%,76rem,calc((100svh_-_2rem)*16/9))]"
+  >
+    <div
+      class="flex items-center justify-between gap-4 border-b border-bone-500/20 px-6 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-bone-500 sm:text-xs deck:px-[5cqw]"
+    >
+      <span class="text-sm normal-case tracking-tight text-bone-50">
+        Noor<span class="text-signal">Rank</span>
+      </span>
+      <span>Company Profile · September 2026</span>
+    </div>
+
+    <div class="relative flex flex-1 flex-col justify-center px-6 py-10 deck:px-[5cqw] deck:py-[2.5cqw]">
+      <slot />
+    </div>
+
+    <div
+      class="flex items-center justify-between gap-4 border-t border-bone-500/20 px-6 py-3 font-mono text-[11px] text-bone-500 sm:text-xs deck:px-[5cqw]"
+    >
+      <span>Dubai · Kochi</span>
+      <span class="slide-number text-bone-50" aria-hidden="true"></span>
+    </div>
+  </div>
+</section>

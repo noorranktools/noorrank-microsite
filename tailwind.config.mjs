@@ -34,6 +34,10 @@ export default {
       letterSpacing: {
         tightest: "-0.04em",
       },
+      screens: {
+        // Wide, landscape-ish screens get true 16:9 slides.
+        deck: { raw: "(min-width: 900px) and (min-aspect-ratio: 5/4)" },
+      },
     },
   },
   plugins: [],

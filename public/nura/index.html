@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NoorRank × Nura — AEO Case Study</title>
+<meta name="description" content="How NoorRank rebuilt the AI-visibility foundation for Nura by FUJIFILM: from AI engines not recognising the brand to Nura named first on a cold, category-level search.">
+<link rel="canonical" href="https://www.company-profile.noorrank.com/nura/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Sora:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#150B18;
+    --panel:#1E1226;
+    --panel-2:#251733;
+    --gold:#C9A24C;
+    --gold-line:rgba(201,162,76,0.28);
+    --gold-dim:rgba(201,162,76,0.12);
+    --cream:#F4EFE8;
+    --muted:#A79AAE;
+    --muted-2:#8B7C93;
+  }
+
+  *{box-sizing:border-box;}
+
+  html{background:var(--ink);}
+
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--cream);
+    font-family:'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+
+  h1,h2{
+    font-family:'Unbounded', 'Sora', sans-serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    color:var(--cream);
+    margin:0;
+  }
+
+  .mono{
+    font-family:'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  a{color:inherit;}
+
+  .page{
+    max-width:880px;
+    margin:0 auto;
+    padding:0 28px 96px;
+  }
+
+  /* ---------- Header ---------- */
+
+  .site-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:36px 0 64px;
+  }
+
+  .mark{
+    font-family:'Unbounded', sans-serif;
+    font-weight:700;
+    font-size:1.1rem;
+    color:var(--gold);
+  }
+
+  .site-header .kicker{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.78rem;
+    color:var(--muted);
+  }
+
+  /* ---------- Hero ---------- */
+
+  .hero{
+    padding-bottom:56px;
+    animation:rise 700ms ease-out both;
+  }
+
+  @keyframes rise{
+    from{opacity:0; transform:translateY(10px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.8rem;
+    color:var(--gold);
+    margin:0 0 18px;
+  }
+
+  h1{
+    font-size:clamp(2rem, 4vw, 2.9rem);
+    line-height:1.18;
+    max-width:16ch;
+  }
+
+  .lede{
+    font-size:1.08rem;
+    color:var(--muted);
+    max-width:56ch;
+    margin:22px 0 0;
+  }
+
+  .mock-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    margin-top:44px;
+  }
+
+  .mock-panel{
+    background:var(--panel);
+    border:1px solid var(--gold-line);
+    border-radius:4px;
+    padding:22px 22px 24px;
+  }
+
+  .mock-before{border-color:rgba(167,154,174,0.35);}
+
+  .mock-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    color:var(--muted-2);
+    margin:0 0 16px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+
+  .mock-label::before{
+    content:"";
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--muted-2);
+    flex:none;
+  }
+
+  .mock-after .mock-label::before{
+    background:var(--gold);
+  }
+
+  .mock-query{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.92rem;
+    color:var(--cream);
+    margin:0 0 12px;
+  }
+
+  .mock-answer{
+    font-size:0.95rem;
+    color:var(--muted);
+    margin:0;
+  }
+
+  .mock-before .mock-answer{font-style:italic;}
+
+  @media (max-width:640px){
+    .mock-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- Fact strip ---------- */
+
+  .facts{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    border-top:1px solid var(--gold-line);
+    border-bottom:1px solid var(--gold-line);
+    margin:8px 0 64px;
+  }
+
+  .fact{
+    padding:22px 18px;
+    border-left:1px solid var(--gold-line);
+  }
+
+  .fact:first-child{border-left:none;}
+
+  .fact-label{
+    display:block;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    color:var(--gold);
+    margin-bottom:8px;
+  }
+
+  .fact-value{
+    display:block;
+    font-size:0.88rem;
+    color:var(--muted);
+    line-height:1.5;
+  }
+
+  @media (max-width:720px){
+    .facts{grid-template-columns:1fr 1fr;}
+    .fact:nth-child(3){border-left:none;}
+  }
+
+  @media (max-width:460px){
+    .facts{grid-template-columns:1fr;}
+    .fact{border-left:none !important; border-top:1px solid var(--gold-line);}
+    .fact:first-child{border-top:none;}
+  }
+
+  /* ---------- Prose sections ---------- */
+
+  section.prose{
+    padding:52px 0;
+    border-top:1px solid var(--gold-line);
+    max-width:680px;
+  }
+
+  section.prose h2{
+    font-size:1.5rem;
+    margin-bottom:22px;
+  }
+
+  section.prose p{
+    max-width:62ch;
+    font-size:1rem;
+    color:var(--muted);
+  }
+
+  section.prose p + p{margin-top:16px;}
+
+  .phase-tag{
+    display:inline-block;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    color:var(--ink);
+    background:var(--gold);
+    padding:4px 10px;
+    border-radius:3px;
+    margin:-6px 0 20px;
+  }
+
+  blockquote{
+    margin:28px 0 0;
+    padding:4px 0 4px 22px;
+    border-left:2px solid var(--gold);
+    font-family:'Unbounded', sans-serif;
+    font-weight:500;
+    font-size:1.15rem;
+    color:var(--cream);
+    max-width:48ch;
+    line-height:1.5;
+  }
+
+  /* ---------- What we found ---------- */
+
+  section.found{
+    padding:52px 0;
+    border-top:1px solid var(--gold-line);
+  }
+
+  section.found h2{
+    font-size:1.5rem;
+    margin-bottom:28px;
+  }
+
+  .found-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--gold-line);
+    border:1px solid var(--gold-line);
+  }
+
+  .found-item{
+    background:var(--panel);
+    padding:24px;
+  }
+
+  .found-tag{
+    display:block;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.75rem;
+    color:var(--gold);
+    margin-bottom:14px;
+  }
+
+  .found-item p{
+    font-size:0.92rem;
+    color:var(--muted);
+    margin:0;
+    line-height:1.55;
+  }
+
+  @media (max-width:720px){
+    .found-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- Results ---------- */
+
+  .section-note{
+    max-width:60ch;
+    font-size:0.92rem;
+    color:var(--muted);
+    margin:-10px 0 30px;
+  }
+
+  .stat-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--gold-line);
+    border:1px solid var(--gold-line);
+  }
+
+  .stat{
+    background:var(--panel);
+    padding:24px 20px;
+  }
+
+  .stat-label{
+    display:block;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.7rem;
+    color:var(--muted-2);
+    margin-bottom:10px;
+  }
+
+  .stat-value{
+    display:block;
+    font-family:'Unbounded', sans-serif;
+    font-weight:600;
+    font-size:1.25rem;
+    color:var(--gold);
+    line-height:1.3;
+  }
+
+  .stat-value small{
+    display:block;
+    font-family:'Sora', sans-serif;
+    font-weight:400;
+    font-size:0.6em;
+    color:var(--muted);
+    margin-top:6px;
+  }
+
+  .verify-note{
+    margin-top:18px;
+    font-size:0.8rem;
+    color:var(--muted-2);
+  }
+
+  @media (max-width:720px){
+    .stat-grid{grid-template-columns:repeat(2, 1fr);}
+  }
+
+  @media (max-width:460px){
+    .stat-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- Ranking grid ---------- */
+
+  .rank-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:1px;
+    background:var(--gold-line);
+    border:1px solid var(--gold-line);
+    margin-top:28px;
+  }
+
+  .rank-item{
+    background:var(--panel);
+    padding:22px 18px;
+  }
+
+  .rank-platform{
+    display:block;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.75rem;
+    color:var(--gold);
+    margin-bottom:10px;
+  }
+
+  .rank-position{
+    display:block;
+    font-family:'Unbounded', sans-serif;
+    font-weight:600;
+    font-size:1.05rem;
+    color:var(--cream);
+    margin-bottom:8px;
+  }
+
+  .rank-detail{
+    font-size:0.84rem;
+    color:var(--muted);
+    line-height:1.5;
+    margin:0;
+  }
+
+  @media (max-width:720px){
+    .rank-grid{grid-template-columns:repeat(2, 1fr);}
+  }
+
+  @media (max-width:460px){
+    .rank-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- Proof list ---------- */
+
+  .proof-list{
+    margin-top:26px;
+    max-width:62ch;
+  }
+
+  .proof-item{
+    padding:20px 0;
+    border-top:1px solid var(--gold-line);
+  }
+
+  .proof-item:first-child{
+    border-top:none;
+    padding-top:0;
+  }
+
+  .proof-built{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.74rem;
+    color:var(--gold);
+    margin:0 0 8px;
+  }
+
+  .proof-result{
+    font-size:0.94rem;
+    color:var(--muted);
+    margin:0;
+    line-height:1.6;
+  }
+
+  /* ---------- Checklists ---------- */
+
+  ul.checklist{
+    list-style:none;
+    margin:24px 0 0;
+    padding:0;
+    max-width:62ch;
+  }
+
+  ul.checklist li{
+    position:relative;
+    padding-left:30px;
+    color:var(--muted);
+    font-size:0.98rem;
+  }
+
+  ul.checklist li + li{margin-top:14px;}
+
+  ul.checklist li::before{
+    content:"✓";
+    position:absolute;
+    left:0;
+    top:0;
+    color:var(--gold);
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.85rem;
+  }
+
+  ul.checklist--plain li::before{
+    content:"○";
+    font-size:0.65rem;
+    top:5px;
+  }
+
+  /* ---------- CTA ---------- */
+
+  section.cta{
+    margin-top:52px;
+    padding:56px 44px;
+    background:var(--panel-2);
+    border:1px solid var(--gold-line);
+    border-radius:6px;
+    text-align:left;
+  }
+
+  section.cta h2{
+    font-size:1.6rem;
+    max-width:20ch;
+  }
+
+  section.cta p{
+    color:var(--muted);
+    max-width:52ch;
+    margin:16px 0 28px;
+  }
+
+  .cta-button{
+    display:inline-block;
+    background:var(--gold);
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Sora', sans-serif;
+    font-weight:600;
+    font-size:0.95rem;
+    padding:14px 26px;
+    border-radius:4px;
+    transition:background 160ms ease;
+  }
+
+  .cta-button:hover{background:#DDB768;}
+
+  /* ---------- Footer ---------- */
+
+  .site-footer{
+    margin-top:64px;
+    padding-top:28px;
+    border-top:1px solid var(--gold-line);
+  }
+
+  .site-footer p{
+    font-size:0.85rem;
+    color:var(--muted-2);
+    margin:0 0 8px;
+  }
+
+  .footnote{
+    font-size:0.78rem;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="site-header">
+    <a class="mark" href="/" style="text-decoration:none">NoorRank</a>
+    <a class="kicker" href="/" style="text-decoration:none">← Company profile</a>
+  </header>
+
+  <section class="hero">
+    <p class="eyebrow">Healthtech AEO engagement · Case study</p>
+    <h1>Teaching AI search that Nura is a health screening centre, not an anime character</h1>
+    <p class="lede">How NoorRank rebuilt the AI-visibility foundation for Nura by FUJIFILM, India's first AI-powered preventive health screening centre.</p>
+
+    <div class="mock-grid">
+      <div class="mock-panel mock-before">
+        <p class="mock-label">Verified starting point</p>
+        <p class="mock-query">"what is nura?"</p>
+        <p class="mock-answer">AI engines returned an anime title, or an audio technology brand. Nothing about health screening.</p>
+      </div>
+      <div class="mock-panel mock-after">
+        <p class="mock-label">Verified today</p>
+        <p class="mock-query">"what is nura?"</p>
+        <p class="mock-answer">ChatGPT, Gemini and Brave now identify Nura correctly: FUJIFILM DKH LLP's preventive health screening centre, citing nura.in.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="facts">
+    <div class="fact">
+      <span class="fact-label">Operator</span>
+      <span class="fact-value">FUJIFILM DKH LLP, a joint venture with Dr. Kutty's Healthcare</span>
+    </div>
+    <div class="fact">
+      <span class="fact-label">Technology</span>
+      <span class="fact-value">REiLI, Fujifilm's proprietary AI imaging system</span>
+    </div>
+    <div class="fact">
+      <span class="fact-label">Footprint</span>
+      <span class="fact-value">Six centres across India, grown from five the year before</span>
+    </div>
+    <div class="fact">
+      <span class="fact-label">Positioning</span>
+      <span class="fact-value">Preventive screening. Explicitly not diagnosis or treatment</span>
+    </div>
+  </section>
+
+  <section class="prose">
+    <h2>The challenge</h2>
+    <p>Nura by FUJIFILM entered the Indian market as a category-defining idea: full-body preventive health screening, powered by AI imaging, built by a joint venture between Fujifilm and Dr. Kutty's Healthcare. On paper, it is exactly the kind of brand an AI answer engine should recognise and recommend easily.</p>
+    <p>In practice, the name collided with an unrelated anime character and an established audio technology brand, also called Nura. Ask ChatGPT, Gemini or Perplexity a simple question like "what is Nura", and at the point NoorRank was brought in, the honest answer was that the AI genuinely did not know.</p>
+    <p>For most brands that is an annoyance. For a healthcare brand, it is closer to a floor problem. AI answer engines apply a higher trust bar to health information, the same experience, expertise, authority and trust signals search engines have long weighted in medical results. If the entity itself is not clearly and consistently defined, nothing built on top of it can be trusted or cited.</p>
+  </section>
+
+  <section class="prose">
+    <h2>Our approach</h2>
+    <p>NoorRank ran a full audit of nura.in, combining an in-house AEO framework with standard technical validators: schema testing tools, crawl simulators, and direct queries against Google AI Overviews, Google AI Mode, ChatGPT, Perplexity, Copilot and Gemini. Every finding had to be checkable, live on the site or in a validator. Nothing went into the report that could not be independently verified.</p>
+    <p>The findings sorted into three groups.</p>
+  </section>
+
+  <section class="found">
+    <h2>What we found</h2>
+    <div class="found-grid">
+      <div class="found-item">
+        <span class="found-tag">Entity &amp; schema</span>
+        <p>Structured data existed across the site, but carried errors that worked against correct identification: an incorrect medical classification, incomplete organisation details, and page types that contradicted the site's own copy about what Nura does and does not do.</p>
+      </div>
+      <div class="found-item">
+        <span class="found-tag">Content consistency</span>
+        <p>Key facts, including pricing and service descriptions, were stated differently in different places. An AI system trying to summarise Nura in one clean answer had no single version of the truth to draw from.</p>
+      </div>
+      <div class="found-item">
+        <span class="found-tag">Technical crawlability</span>
+        <p>Elements that render correctly for a human visitor, animated counters, dynamically loaded sections, returned empty or inconsistent data to the crawlers and AI retrieval systems that decide what gets cited.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <h2>Phase 1: building the foundation</h2>
+    <span class="phase-tag">Complete</span>
+    <p>Phase 1 focused on infrastructure NoorRank could control directly.</p>
+    <ul class="checklist">
+      <li>An llms.txt file, guiding AI crawlers directly to how Nura should be understood</li>
+      <li>A rebuilt schema library, corrected for medical accuracy and standards compliance</li>
+      <li>Corrected heading hierarchy across the site's key pages</li>
+      <li>Rewritten meta descriptions and alt text, sitewide</li>
+      <li>Fixes across Nura's city-centre pages</li>
+      <li>A Build, Content and Medical Review Pack, a repeatable process pairing every content or schema change with a medical-accuracy check before it ships</li>
+      <li>A query strategy mapping over 140 real user searches, across six intent categories, directly onto the page templates for Nura's site redesign</li>
+    </ul>
+  </section>
+
+  <section class="prose">
+    <h2>Results, verified live</h2>
+    <p class="section-note">Checked directly against nura.in in August and September 2026, each figure below is reproducible via view-source or Google's Rich Results Test.</p>
+    <div class="stat-grid">
+      <div class="stat">
+        <span class="stat-label">Click-through rate</span>
+        <span class="stat-value">0.45% &rarr; 5.03%<small>Search Console, across the engagement</small></span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Valid schema blocks</span>
+        <span class="stat-value">59 of 59<small>zero parse failures</small></span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Typed schema entities</span>
+        <span class="stat-value">790<small>up from a bare minimum</small></span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Centres with full clinic markup</span>
+        <span class="stat-value">6 of 6<small>address, hours, services, map</small></span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Images with alt text</span>
+        <span class="stat-value">99.8%<small>up from 24%</small></span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Q&amp;A pairs in schema</span>
+        <span class="stat-value">146<small>across 11 pages</small></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <h2>Ranked first, cold and unprompted</h2>
+    <p>To test this honestly, NoorRank ran a query that never names Nura, logged out, on a clean session: "Where can I get an AI-powered full body health checkup in India?"</p>
+    <div class="rank-grid">
+      <div class="rank-item">
+        <span class="rank-platform">ChatGPT</span>
+        <span class="rank-position">1st</span>
+        <p class="rank-detail">Named as the closest match, shown with a map card</p>
+      </div>
+      <div class="rank-item">
+        <span class="rank-platform">Google AI Overview</span>
+        <span class="rank-position">1st</span>
+        <p class="rank-detail">Named in the opening sentence</p>
+      </div>
+      <div class="rank-item">
+        <span class="rank-platform">Gemini</span>
+        <span class="rank-position">1st</span>
+        <p class="rank-detail">Every centre listed with its neighbourhood, each cited to nura.in</p>
+      </div>
+      <div class="rank-item">
+        <span class="rank-platform">Brave</span>
+        <span class="rank-position">1st</span>
+        <p class="rank-detail">Used as the benchmark for describing other providers</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <h2>What's underneath the answers</h2>
+    <p>The results above trace directly back to specific work, not general optimisation.</p>
+    <div class="proof-list">
+      <div class="proof-item">
+        <p class="proof-built">Built: llms.txt</p>
+        <p class="proof-result">ChatGPT described Nura as "a dedicated preventive health screening centre, not a hospital, clinic, or treatment facility." That is the exact language written into nura.in/llms.txt during this engagement.</p>
+      </div>
+      <div class="proof-item">
+        <p class="proof-built">Built: clinic schema, six centres</p>
+        <p class="proof-result">Gemini named Bengaluru (Indiranagar), Gurugram (Sector 43), Mumbai (Worli) and Hyderabad (Madhapur) by neighbourhood. These are the exact values written into the clinic markup for each centre.</p>
+      </div>
+      <div class="proof-item">
+        <p class="proof-built">Built: hours and specialty schema</p>
+        <p class="proof-result">ChatGPT displayed a Nura centre as a map result showing live open or closed status and its medical imaging category, drawn straight from the opening-hours and medical-specialty fields written during this engagement.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <h2>Built for a YMYL brand, not a generic one</h2>
+    <p>Healthcare content carries a different bar, and NoorRank's schema and content decisions reflect that throughout.</p>
+    <p>Rather than label Nura with a generic "preventive medicine" tag, its medical specialty is coded as public health, linked to the clinical concept of preventive healthcare. That keeps AI systems from misreading Nura as a diagnostic lab or clinic, which it explicitly is not.</p>
+    <p>Review attribution stays at the organisation level, "Reviewed by the NURA Clinical Team", never a named individual, matching how the review process actually works.</p>
+    <p>Commercial search terms get the same care. "Full body checkup" becomes "comprehensive preventive screening" in the copy; "best health checkup centre" becomes language Nura can responsibly stand behind. The keywords still get matched. The claims stay honest.</p>
+    <blockquote>Every finding is reproducible via view-source, Google's Rich Results Test, or any public crawler.</blockquote>
+  </section>
+
+  <section class="prose">
+    <h2>How we work</h2>
+    <p>Nura's team works best in the room, not through documents landing cold in an inbox. Engagement runs on weekly live sessions: findings and fixes get walked through together, decisions get made on the spot, with short recap notes following rather than long written reports.</p>
+    <p>Every deliverable is built for two audiences at once, strategic framing for the people deciding, and operational detail for the people shipping the change.</p>
+  </section>
+
+  <section class="prose">
+    <h2>Where it stands now</h2>
+    <span class="phase-tag">Foundation complete</span>
+    <p>Nura's entity-resolution and structured-data foundation is built, live and verified. What started as an AI answer engine unable to identify Nura at all now returns Nura first, correctly named and correctly attributed, for a cold, category-level search.</p>
+    <p>That result sits on top of infrastructure that is still growing: deeper structured data, wider coverage across review and location pages, and a stronger presence on AI platforms beyond Google's surfaces, where Nura's visibility is currently concentrated.</p>
+    <blockquote>Infrastructure sets the floor. Authority sets the ceiling.</blockquote>
+  </section>
+
+  <section class="prose">
+    <h2>What's next</h2>
+    <ul class="checklist checklist--plain">
+      <li>Extending the same authority-building work to Perplexity and Copilot, where presence still lags Google's AI surfaces</li>
+      <li>Deepening review and location-page coverage across all six centres</li>
+      <li>Growing citation share on the generic, non-branded searches that drive bookings, not just brand-name lookups</li>
+      <li>Building attribution that ties AI-referred visits to screenings actually booked</li>
+    </ul>
+  </section>
+
+  <section class="cta">
+    <h2>Fixing how AI understands your brand</h2>
+    <p>If AI answer engines cannot correctly identify or cite your brand, that is fixable. It was for Nura.</p>
+    <a class="cta-button" href="/#contact">Talk to NoorRank</a>
+  </section>
+
+  <footer class="site-footer">
+    <p>NoorRank · AI visibility · Dubai, UAE &amp; Kochi, India</p>
+    <p class="footnote">Prepared for portfolio use. Figures verified live against nura.in in August and September 2026; reproducible via view-source or Google's Rich Results Test.</p>
+  </footer>
+
+</div>
+</body>
+</html>

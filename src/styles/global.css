@@ -10,8 +10,15 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-ink-900 text-bone-100 antialiased;
+    @apply bg-ink-700 text-bone-100 antialiased;
     font-feature-settings: "ss01", "cv01";
+    counter-reset: slide 1;
+  }
+  .deck-slide {
+    counter-increment: slide;
+  }
+  .slide-number::after {
+    content: counter(slide, decimal-leading-zero);
   }
   ::selection {
     @apply bg-signal text-ink-900;
@@ -39,6 +46,55 @@
     transform: none;
   }
 }
+
+/* Deck type scale. Phones/portrait: fixed sizes. Wide screens: sizes scale
+   with the slide's own width (cqw) so each 16:9 slide keeps its layout. */
+.slide-frame {
+  container-type: inline-size;
+}
+.d-display { font-size: 2.25rem; line-height: 1; }
+.d-title { font-size: 1.875rem; line-height: 1.12; }
+.d-lead { font-size: 1.0625rem; line-height: 1.6; }
+.d-h3 { font-size: 1.125rem; line-height: 1.3; }
+.d-body { font-size: 0.875rem; line-height: 1.6; }
+.d-stat { font-size: 1.25rem; line-height: 1.2; }
+
+@media (min-width: 900px) and (min-aspect-ratio: 5/4) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+  .d-display { font-size: clamp(2rem, 5cqw, 4.5rem); }
+  .d-title { font-size: clamp(1.35rem, 3.4cqw, 2.9rem); }
+  .d-lead { font-size: clamp(0.85rem, 1.5cqw, 1.25rem); }
+  .d-h3 { font-size: clamp(0.85rem, 1.45cqw, 1.2rem); }
+  .d-body { font-size: clamp(0.72rem, 1.12cqw, 0.98rem); }
+  .d-stat { font-size: clamp(1rem, 2.1cqw, 1.8rem); }
+}
+
+/* Presentation mode (full screen via the Present button or F): slides fill
+   the screen, text scales with them, one slide per key press. */
+html.presenting {
+  scroll-snap-type: y mandatory;
+}
+html.presenting .slide-frame,
+html.presenting #cover .cover-wrap {
+  width: min(100%, calc((100svh - 2rem) * 16 / 9)) !important;
+  max-width: none !important;
+}
+html.presenting #cover {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+html.presenting .cover-extras,
+html.presenting body > footer {
+  display: none !important;
+}
+html.presenting .d-display { font-size: 5cqw; }
+html.presenting .d-title { font-size: 3.4cqw; }
+html.presenting .d-lead { font-size: 1.5cqw; }
+html.presenting .d-h3 { font-size: 1.45cqw; }
+html.presenting .d-body { font-size: 1.12cqw; }
+html.presenting .d-stat { font-size: 2.1cqw; }
 
 @media (prefers-reduced-motion: reduce) {
   html {

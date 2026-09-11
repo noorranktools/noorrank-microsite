@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import Nav from "../components/Nav.astro";
+import Cover from "../components/Cover.astro";
 import Hero from "../components/Hero.astro";
 import Shift from "../components/Shift.astro";
 import WhatWeDo from "../components/WhatWeDo.astro";
@@ -14,7 +14,7 @@ import Contact from "../components/Contact.astro";
 ---
 
 <Base>
-  <Nav />
+  <Cover />
   <main>
     <Hero />
     <Shift />
@@ -28,8 +28,16 @@ import Contact from "../components/Contact.astro";
     <Contact />
   </main>
   <footer class="border-t border-bone-500/10 py-10 no-print">
-    <div class="wrap flex flex-col items-start justify-between gap-2 font-mono text-xs text-bone-500 sm:flex-row sm:items-center">
-      <span>© 2026 NoorRank · Dubai, UAE</span>
+    <div class="wrap flex flex-col items-start justify-between gap-2 font-mono text-xs text-bone-500 lg:flex-row lg:items-center">
+      <span>© 2026 NoorRank · Dubai, UAE · Kochi, India</span>
+      <span>
+        This is NoorRank's company profile. Our main website is
+        <a
+          href="https://noorrank.com"
+          class="text-bone-300 underline-offset-4 hover:underline"
+          rel="noopener">noorrank.com</a
+        >.
+      </span>
       <span>Rank by Design, Not by Chance</span>
     </div>
   </footer>

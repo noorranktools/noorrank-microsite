@@ -1,24 +1,31 @@
 ---
 import { site } from "../data/site";
+import Slide from "./Slide.astro";
 ---
 
-<section id="contact" class="border-t border-bone-500/10 py-24 md:py-36">
-  <div class="wrap">
-    <p class="eyebrow reveal">Start with a Conversation</p>
-    <h2
-      class="reveal mt-6 max-w-4xl text-balance text-4xl font-extrabold leading-[1.02] tracking-tightest sm:text-6xl"
-    >
-      See what AI says<br />
-      <span class="text-bone-400">about you.</span>
-    </h2>
-    <p class="reveal mt-8 max-w-2xl text-lg leading-relaxed text-bone-300 print-muted">
-      Tell us your business and three questions your customers ask. We'll put
-      them to ChatGPT, Perplexity and Gemini and send you what comes back: where
-      you're named, and where you're not. No pitch deck.
-    </p>
+<Slide id="contact">
+  <p class="eyebrow reveal">Start with a Conversation</p>
+  <h2 class="d-display reveal mt-4 text-balance font-extrabold tracking-tightest">
+    See what AI says <span class="text-bone-300">about you.</span>
+  </h2>
+
+  <div class="mt-8 grid gap-6 md:grid-cols-2 md:items-start">
+    <div>
+      <p class="d-lead reveal text-bone-300 print-muted">
+        Tell us your business and three questions your customers ask. We'll put
+        them to ChatGPT, Perplexity and Gemini and send you what comes back:
+        where you're named, and where you're not. No pitch deck.
+      </p>
+      <a
+        href={`mailto:${site.email}?subject=AI%20visibility%20check`}
+        class="reveal mt-6 inline-block rounded-full bg-signal px-7 py-3.5 text-sm font-semibold text-ink-900 transition-opacity hover:opacity-90"
+      >
+        Send us your three questions
+      </a>
+    </div>
 
     <div
-      class="reveal mt-12 rounded-2xl border border-bone-500/15 bg-ink-800 p-6 font-mono text-sm print-card"
+      class="reveal rounded-2xl border border-bone-500/15 bg-ink-800 p-6 font-mono text-sm print-card"
     >
       <div class="flex items-center gap-2 text-bone-500" aria-hidden="true">
         <span class="h-2.5 w-2.5 rounded-full bg-bone-500/40"></span>
@@ -50,18 +57,9 @@ import { site } from "../data/site";
         </p>
       </div>
     </div>
-
-    <div class="reveal mt-10">
-      <a
-        href={`mailto:${site.email}?subject=AI%20visibility%20check`}
-        class="inline-block rounded-full bg-signal px-7 py-3.5 text-sm font-semibold text-ink-900 transition-opacity hover:opacity-90"
-      >
-        Send us your three questions
-      </a>
-    </div>
-
-    <p class="mt-16 font-mono text-xs uppercase tracking-[0.3em] text-bone-500">
-      Rank by Design, Not by Chance
-    </p>
   </div>
-</section>
+
+  <p class="mt-8 font-mono text-xs uppercase tracking-[0.3em] text-bone-500">
+    Rank by Design, Not by Chance
+  </p>
+</Slide>

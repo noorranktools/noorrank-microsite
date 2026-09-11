@@ -5,10 +5,10 @@ export const site = {
   tagline: "Rank by Design, Not by Chance",
   url: "https://noorrank.com",
   email: "inquiries@noorrank.com",
-  location: "Dubai, UAE",
+  location: "Dubai, UAE · Kochi, India",
   reach: "Serving Clients Worldwide",
   description:
-    "NoorRank is a Dubai-based AI visibility consultancy. We make ChatGPT, Perplexity, Gemini and Claude understand, trust and recommend your business.",
+    "NoorRank is an AI visibility consultancy based in Dubai and Kochi. We make ChatGPT, Perplexity, Gemini and Claude understand, trust and recommend your business.",
 };
 
 export const founders = [

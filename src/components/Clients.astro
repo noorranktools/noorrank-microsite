@@ -1,37 +1,40 @@
 ---
 import { clients } from "../data/site";
+import Slide from "./Slide.astro";
 ---
 
-<section id="clients" class="border-t border-bone-500/10 py-24 md:py-32">
-  <div class="wrap">
-    <p class="eyebrow reveal">Who We Work With</p>
-    <h2 class="reveal mt-5 max-w-3xl text-3xl font-bold tracking-tight sm:text-5xl">
-      Clients across the UAE, India, the UK and South Korea.
-    </h2>
+<Slide id="clients">
+  <p class="eyebrow reveal">Who We Work With</p>
+  <h2 class="d-title reveal mt-4 max-w-[30ch] font-bold tracking-tight">
+    Clients across the UAE, India, the UK and South Korea.
+  </h2>
 
-    <div class="reveal mt-14 overflow-x-auto rounded-2xl border border-bone-500/15">
-      <table class="w-full min-w-[640px] border-collapse text-left text-sm">
-        <thead>
-          <tr class="bg-ink-700">
-            <th class="p-4 font-medium text-bone-500">Client</th>
-            <th class="p-4 font-medium text-bone-500">Where</th>
-            <th class="p-4 font-medium text-bone-500">What we do for them</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            clients.map((c) => (
-              <tr class="border-t border-bone-500/10 odd:bg-ink-800/40">
-                <th scope="row" class="p-4 font-semibold text-bone-50">
-                  {c.name}
-                </th>
-                <td class="p-4 text-bone-300 print-muted">{c.where}</td>
-                <td class="p-4 text-bone-300 print-muted">{c.work}</td>
-              </tr>
-            ))
-          }
-        </tbody>
-      </table>
-    </div>
+  <div class="reveal mt-6 overflow-hidden rounded-2xl border border-bone-500/15">
+    <table class="d-body w-full border-collapse text-left">
+      <thead class="hidden md:table-header-group">
+        <tr class="bg-ink-700">
+          <th class="p-4 font-medium text-bone-500">Client</th>
+          <th class="p-4 font-medium text-bone-500">Where</th>
+          <th class="p-4 font-medium text-bone-500">What we do for them</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          clients.map((c) => (
+            <tr class="block border-t border-bone-500/10 p-5 odd:bg-ink-800/40 first:border-t-0 md:table-row md:p-0 md:first:border-t">
+              <th scope="row" class="block font-semibold text-bone-50 md:table-cell md:p-4">
+                {c.name}
+              </th>
+              <td class="mt-1 block text-bone-500 md:mt-0 md:table-cell md:p-4 md:text-bone-300 print-muted">
+                {c.where}
+              </td>
+              <td class="mt-2 block text-bone-300 md:mt-0 md:table-cell md:p-4 print-muted">
+                {c.work}
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
   </div>
-</section>
+</Slide>

@@ -35,4 +35,26 @@
   a[href]::after {
     content: "";
   }
+  .print-cover {
+    min-height: auto !important;
+    background: #ffffff !important;
+    break-after: page;
+    page-break-after: always;
+  }
+  .print-cover .slide {
+    background: #ffffff !important;
+    border: 1px solid #d8d4ca !important;
+    box-shadow: none !important;
+  }
+  .print-cover .slide * {
+    color: #101018 !important;
+  }
+  .print-slide {
+    background: #ffffff !important;
+    border: 1px solid #d8d4ca !important;
+    box-shadow: none !important;
+  }
+  .print-slide * {
+    color: #101018 !important;
+  }
 }
