@@ -1,38 +1,64 @@
 ---
-import { disciplines } from "../data/site";
+import { visibility, alsoBuild } from "../data/site";
 ---
 
 <section id="what-we-do" class="border-t border-bone-500/10 py-24 md:py-32">
   <div class="wrap">
     <p class="eyebrow reveal">What We Do</p>
     <h2 class="reveal mt-5 max-w-3xl text-3xl font-bold tracking-tight sm:text-5xl">
-      Three disciplines. One roof.
+      {visibility.title}
     </h2>
+    <p class="reveal mt-6 max-w-2xl text-lg leading-relaxed text-bone-300 print-muted">
+      {visibility.intro}
+    </p>
 
-    <div class="mt-14 grid gap-6 lg:grid-cols-3">
+    <div class="mt-12 grid gap-6 lg:grid-cols-3">
       {
-        disciplines.map((d) => (
+        visibility.points.map((p, i) => (
           <article class="reveal flex flex-col rounded-2xl border border-bone-500/15 bg-ink-800 p-8 print-card">
-            <div class="flex items-baseline justify-between">
-              <span class="font-mono text-sm text-signal-dim">{d.n}</span>
-            </div>
-            <h3 class="mt-5 text-2xl font-semibold text-bone-50">{d.title}</h3>
-            <p class="mt-1 font-mono text-xs uppercase tracking-[0.16em] text-bone-500">
-              {d.kicker}
+            <span class="font-mono text-sm text-signal-dim">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <h3 class="mt-5 text-2xl font-semibold text-bone-50">{p.title}</h3>
+            <p class="mt-4 text-sm leading-relaxed text-bone-300 print-muted">
+              {p.body}
             </p>
-            <p class="mt-5 flex-1 text-sm leading-relaxed text-bone-300 print-muted">
-              {d.body}
-            </p>
-            <ul class="mt-6 flex flex-wrap gap-2">
-              {d.tags.map((t) => (
-                <li class="rounded-full border border-bone-500/20 px-3 py-1 font-mono text-[11px] text-bone-300">
-                  {t}
-                </li>
-              ))}
-            </ul>
           </article>
         ))
       }
+    </div>
+
+    <div class="reveal mt-8 flex flex-wrap items-center gap-2">
+      <p class="mr-2 font-mono text-xs uppercase tracking-[0.16em] text-bone-500">
+        Works across
+      </p>
+      <ul class="flex flex-wrap gap-2">
+        {
+          visibility.engines.map((e) => (
+            <li class="rounded-full border border-bone-500/20 px-3 py-1 font-mono text-[11px] text-bone-300">
+              {e}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="mt-16">
+      <p class="reveal font-mono text-xs uppercase tracking-[0.2em] text-bone-500">
+        We also build
+      </p>
+      <div class="mt-6 grid gap-6 md:grid-cols-2">
+        {
+          alsoBuild.map((b) => (
+            <div class="reveal rounded-2xl border border-bone-500/15 p-7 print-card">
+              <h3 class="text-lg font-semibold text-bone-50">{b.title}</h3>
+              <p class="mt-3 text-sm leading-relaxed text-bone-300 print-muted">
+                {b.body}
+              </p>
+            </div>
+          ))
+        }
+      </div>
     </div>
   </div>
 </section>

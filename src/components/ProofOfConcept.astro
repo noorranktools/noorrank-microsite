@@ -17,9 +17,9 @@ const linePath = pts.map((p, i) => `${i === 0 ? "M" : "L"}${p.x.toFixed(1)},${p.
 const areaPath = `${linePath} L${pts[pts.length - 1].x.toFixed(1)},${H - padY} L${pts[0].x.toFixed(1)},${H - padY} Z`;
 ---
 
-<section id="proof" class="border-t border-bone-500/10 py-24 md:py-32">
+<section id="lab" class="border-t border-bone-500/10 py-24 md:py-32">
   <div class="wrap">
-    <p class="eyebrow reveal">Proof of Concept</p>
+    <p class="eyebrow reveal">Our Own Lab</p>
     <h2 class="reveal mt-5 max-w-3xl text-3xl font-bold tracking-tight sm:text-5xl">
       {mb.title}
     </h2>

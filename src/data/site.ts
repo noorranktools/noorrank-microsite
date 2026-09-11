@@ -8,14 +8,14 @@ export const site = {
   location: "Dubai, UAE",
   reach: "Serving Clients Worldwide",
   description:
-    "NoorRank makes AI engines understand, trust, and recommend your brand — and builds custom systems you own. AI Visibility, AI-Powered Systems, and AI Strategy, founder-led from Dubai.",
+    "NoorRank is a Dubai-based AI visibility consultancy. We make ChatGPT, Perplexity, Gemini and Claude understand, trust and recommend your business.",
 };
 
 export const founders = [
   {
     name: "Aakarsh",
     role: "CEO & Co-Founder",
-    bio: "Leads brand strategy and AI visibility. He was optimising for AI search before most of the region had a name for it. You'll speak directly with him.",
+    bio: "Leads brand strategy and AI visibility. You'll speak directly with him.",
   },
   {
     name: "Devika",
@@ -30,65 +30,44 @@ export const beliefs = [
     title: "The Audience Changed",
     body: "Brands understood by machines will own the next decade. Brands that only speak to humans will quietly vanish from the conversation — not beaten, just never mentioned.",
   },
-  {
-    n: "02",
-    title: "You Shouldn't Rent Your Own Business",
-    body: "We don't pay monthly for software that half-fits when it can be built to fit exactly — and we practise what we preach. NoorRank runs almost entirely on tools we built ourselves.",
-  },
 ];
 
-export const disciplines = [
-  {
-    n: "01",
-    title: "AI Visibility",
-    kicker: "The first discipline of the machine era",
-    body: "We make AI engines understand, trust, and recommend your brand. When your customer asks ChatGPT, Perplexity, or Google's AI for a recommendation, your name should be in the answer — described accurately, positioned as the obvious choice.",
-    tags: ["ChatGPT", "Perplexity", "Gemini", "Claude"],
-  },
-  {
-    n: "02",
-    title: "AI-Powered Systems",
-    kicker: "Software that does the work for you",
-    body: "We build platforms that handle the busywork: chasing payments, managing licenses, running billing, surfacing the data you need. Built from scratch, owned by you, running for pennies. You stop renting tools that half-fit and start owning systems that fit exactly.",
-    tags: ["Custom-Built", "You Own It", "No Lock-In"],
-  },
-  {
-    n: "03",
-    title: "AI Strategy",
-    kicker: "Deliberate choices, not chased trends",
-    body: "Before a single line of code, we help you decide where AI fits and where it doesn't. Most companies are either ignoring AI or chasing it blindly. We help you make deliberate choices about where it creates real advantage — and where it's just noise.",
-    tags: ["Discovery", "Audit", "Roadmap"],
-  },
-];
+export const visibility = {
+  title: "We get your business named in AI answers, and described accurately.",
+  intro:
+    "NoorRank's core work is AI visibility: when someone asks an AI engine for a business like yours, it should name you and get the facts right. In practice that means three things.",
+  points: [
+    {
+      title: "Find the gaps",
+      body: "We check what AI engines say about you today: where you're named, where a competitor is named instead, and where the facts are wrong.",
+    },
+    {
+      title: "Fix what AI reads",
+      body: "One consistent definition of your business across your website and the web, structured data engines can parse, and the pages AI pulls answers from.",
+    },
+    {
+      title: "Keep you in the answer",
+      body: "Engines change what they say. We re-test every month and keep moving you from mentioned to recommended.",
+    },
+  ],
+  engines: ["ChatGPT", "Perplexity", "Gemini", "Claude"],
+};
 
-export const ownContrasts = [
+export const alsoBuild = [
   {
-    bad: "Monthly SaaS fees bleeding out the door",
-    good: "Built once. Owned forever. Running for pennies.",
+    title: "Systems you own",
+    body: "NoorRank runs almost entirely on tools we built ourselves, so we build them for clients too: billing, licensing, payments, booking and patient platforms — like the teleconsultation platform for Meet My Specialist and PayCore for ClariPi. You keep everything we build, even if you walk away.",
   },
   {
-    bad: "Software that half-fits your workflow",
-    good: "Built exactly for you — no compromises.",
-  },
-  {
-    bad: "Lose everything when you stop paying",
-    good: "Keep everything we built, even if you walk away.",
+    title: "AI strategy",
+    body: "Not sure where AI fits in your business at all? We start with a review of where it creates a real advantage, and where it's just noise.",
   },
 ];
 
 export const process = [
-  { n: "01", title: "Discovery Call", body: "No forms, no pitch decks. An honest conversation about what you're trying to achieve and whether we're the right fit." },
-  { n: "02", title: "Audit", body: "We assess where you stand — your AI visibility, your systems, your gaps — and what the opportunity looks like." },
-  { n: "03", title: "Pitch", body: "A clear strategy. What we'd do, in what order, what to expect. No inflated promises." },
-  { n: "04", title: "Custom Proposal", body: "Built for your situation. Never a copy-paste package — we scope every engagement from scratch." },
-  { n: "05", title: "Onboarding", body: "You're in. We move fast, communicate directly, and keep you updated at every stage." },
-];
-
-export const reasons = [
-  { title: "We Were Early — On Purpose", body: "We were running AEO strategies in the UAE and MENA before most agencies knew the term. Machine visibility isn't a trend we caught — it's the reason we exist." },
-  { title: "We Build, We Don't Resell", body: "PayCore. Our AEO toolkit. Our billing infrastructure. All built in-house. You get real engineering and genuine IP — not a reseller's markup on someone else's tool." },
-  { title: "You Own What We Build", body: "No rent, no lock-in, no losing your software if you walk away. You pay once and own the asset. We earn the renewal with ongoing work; we don't trap you in it." },
-  { title: "Partners, Not Revenue Lines", body: "You'll have the founders' numbers — not an account manager's. The people who built NoorRank are the people working on your project." },
+  { n: "01", title: "Ghost Audit", body: "We ask the AI engines the questions your customers ask and record what comes back: where you appear, who appears instead, and what they get wrong about you." },
+  { n: "02", title: "Identity Lock", body: "We fix the foundations AI reads: a consistent identity for your business, structured data across your site, and the facts engines need before they'll cite you. This is a fixed phase." },
+  { n: "03", title: "Market Dominance", body: "Then we work on being chosen: content and signals that move you up in the answers, re-tested every month so you can see what changed." },
 ];
 
 export const miracleBerry = {
@@ -109,30 +88,52 @@ export const miracleBerry = {
   ],
 };
 
-export const work = [
-  { tag: "Healthcare · India", name: "Nura by FUJIFILM", type: "AI Visibility Retainer", body: "AI-powered preventive health screening — exactly the kind of service people discover by asking AI. We're building the structured authority that puts Nura in AI answers when someone asks about preventive health screening." },
-  { tag: "Telehealth · UK & India", name: "Meet My Specialist", type: "Full Platform Build", body: "Built MMS a complete teleconsultation platform from scratch — consultations, booking, and patient management in one owned system, designed around how they operate, not forcing them into someone else's tool." },
-  { tag: "Healthcare AI · South Korea", name: "ClariPi", type: "PayCore Platform", body: "Managing 1,000+ product licenses was drowning in admin. We deployed PayCore to automate billing end-to-end, surface usage analytics, and use AI to handle day-to-day busywork — cutting transaction fees significantly." },
-  { tag: "Medical · UAE & India", name: "iMed Matrix · Star BioMed", type: "Custom Systems & AI Visibility", body: "Replaced fragmented third-party apps with one clean invoicing and payment tool built around how they bill. Ongoing AI visibility work positioning iMed as the leading clinical AI integrator across Gulf & India." },
-];
-
-export const engagements = [
-  { flag: "🇦🇪", name: "Aspen Medical Equipment", status: "Results Live", meta: "UAE · Medical Equipment", body: "AEO/GEO implementation — brand now directly cited by ChatGPT & Gemini for high-intent UAE medical queries." },
-  { flag: "🇮🇳", name: "Star Biomed", status: "Engagement Active", meta: "India · Medical Distribution", body: "Digital Presence Revamp, Phase 1 signed. Full website rebuild optimised for AI discovery from the ground up." },
-  { flag: "🇦🇪", name: "iMed Matrix", status: "Engagement Active", meta: "UAE · Clinical AI Integration", body: "Digital presence rebuild in progress. Positioning as the leading clinical AI integrator across Gulf & India." },
-  { flag: "🇮🇳", name: "Meet My Specialist", status: "Development Stage", meta: "India · Telehealth", body: "Comprehensive build: AEO strategy, full website, and end-to-end teleconsultation platform development." },
-  { flag: "🇰🇷", name: "ClariPi Inc", status: "Onboarding", meta: "South Korea · Healthcare AI", body: "AEO and digital intelligence strategy engagement with full PayCore billing platform deployment." },
-  { flag: "🇺🇸", name: "Velmeni", status: "Onboarding", meta: "USA · Healthcare AI", body: "Onboarding underway. AEO and digital intelligence strategy to follow." },
-];
-
-export const matrix = {
-  columns: ["Traditional SEO", "Basic Schema", "Generic Agency", "NoorRank"],
-  rows: [
-    { feature: "AI-First Approach", values: ["✕", "Partial", "✕", "Core focus"] },
-    { feature: "Entity Architecture", values: ["✕", "Limited", "✕", "Full DTA"] },
-    { feature: "Owned IP / No Reselling", values: ["N/A", "N/A", "✕", "Built in-house"] },
-    { feature: "Founders-Direct Access", values: ["✕", "✕", "✕", "Always"] },
-    { feature: "You Own What's Built", values: ["N/A", "N/A", "N/A", "Always"] },
-    { feature: "MENA + India Market Depth", values: ["✕", "✕", "Varies", "Proven"] },
+export const nura = {
+  tag: "Healthcare · India",
+  name: "NURA by FUJIFILM",
+  type: "AI Visibility",
+  before: "Ask an AI engine \"what is Nura?\" and it described an anime title or an audio brand. Nothing about health screening.",
+  after: "ChatGPT, Gemini and Brave now identify Nura correctly, as FUJIFILM DKH LLP's preventive health screening centre, citing nura.in.",
+  query: "Where can I get an AI-powered full body health checkup in India?",
+  queryResult: "A search that never names Nura. ChatGPT, Google's AI Overview, Gemini and Brave all named Nura first.",
+  stats: [
+    { value: "0.45% → 5.03%", label: "Search click-through rate, across the engagement" },
+    { value: "59 of 59", label: "Schema blocks valid" },
+    { value: "6 of 6", label: "Centres fully marked up" },
   ],
+  note: "Logged-out test. Figures verified live against nura.in, Aug–Sep 2026.",
 };
+
+export const clients = [
+  { name: "NURA by FUJIFILM", where: "India · Preventive health screening", work: "AI visibility" },
+  { name: "iMed Matrix", where: "UAE · Clinical AI integration", work: "AI visibility, digital presence rebuild, invoicing & payments tool" },
+  { name: "Meet My Specialist", where: "India & UK · Telehealth", work: "AEO strategy, website, teleconsultation platform" },
+  { name: "ClariPi", where: "South Korea · Healthcare AI", work: "AEO strategy, PayCore billing platform" },
+];
+
+export const faqs = [
+  {
+    q: "How is this different from SEO?",
+    a: "SEO gets a page ranked in a list of links that a person clicks. AI visibility gets your business named inside the answer itself: the engine reads, decides and recommends. The signals are different: AI engines care what your business is, whether it's described consistently, and whether other sources confirm it. Good SEO helps, but it isn't enough on its own.",
+  },
+  {
+    q: "Can you guarantee ChatGPT will recommend us?",
+    a: "No, and be careful of anyone who says they can. Nobody controls what an AI engine answers. What we control is the method, and we show you what the engines say every month, so you'll know early whether it's working.",
+  },
+  {
+    q: "How long does it take?",
+    a: "On our own new domain, the first ChatGPT citation came on day 9. For a client it depends on your category and your starting point. The Ghost Audit tells you where you start before you commit to anything else.",
+  },
+  {
+    q: "Isn't it too early for this?",
+    a: "The engines are already answering questions in your category today. The only question is whose name is in the answer.",
+  },
+  {
+    q: "Why ongoing work, not a one-off project?",
+    a: "The foundations are a fixed phase. After that, engines keep changing what they say: Perplexity dropped our own test domain on day 19 and brought it back on day 20. Staying in the answer takes monitoring. And if you ever leave, you keep everything we built.",
+  },
+  {
+    q: "Do you only work with healthcare?",
+    a: "No. Most of our published work is in healthcare, but the method works for any business customers look for through AI.",
+  },
+];
