@@ -61,14 +61,14 @@
 
 @media (min-width: 900px) and (min-aspect-ratio: 5/4) {
   html {
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y mandatory;
   }
-  .d-display { font-size: clamp(2rem, 5cqw, 4.5rem); }
-  .d-title { font-size: clamp(1.35rem, 3.4cqw, 2.9rem); }
-  .d-lead { font-size: clamp(0.85rem, 1.5cqw, 1.25rem); }
-  .d-h3 { font-size: clamp(0.85rem, 1.45cqw, 1.2rem); }
-  .d-body { font-size: clamp(0.72rem, 1.12cqw, 0.98rem); }
-  .d-stat { font-size: clamp(1rem, 2.1cqw, 1.8rem); }
+  .d-display { font-size: max(2rem, 5cqw); }
+  .d-title { font-size: max(1.35rem, 3.4cqw); }
+  .d-lead { font-size: max(0.85rem, 1.5cqw); }
+  .d-h3 { font-size: max(0.85rem, 1.45cqw); }
+  .d-body { font-size: max(0.72rem, 1.12cqw); }
+  .d-stat { font-size: max(1rem, 2.1cqw); }
 }
 
 /* Presentation mode (full screen via the Present button or F): slides fill

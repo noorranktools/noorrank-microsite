@@ -11,11 +11,11 @@ const presenters = founders.map((f) => f.name).join(" & ");
 >
   <div
     class="cover-wrap flex w-full flex-col gap-4"
-    style="width: min(100%, 76rem, calc((100svh - 15rem) * 16 / 9));"
+    style="width: min(100%, calc((100svh - 8.5rem) * 16 / 9));"
   >
     <div
       class="slide flex aspect-[3/4] flex-col justify-between rounded-xl border border-bone-500/25 bg-black shadow-2xl shadow-black/60 md:aspect-video"
-      style="container-type: inline-size; padding: clamp(1.25rem, 4cqw, 3.5rem);"
+      style="container-type: inline-size; padding: max(1.25rem, 4cqw);"
     >
       <div
         class="flex items-center justify-between gap-4 border-b border-bone-500/20 pb-3 font-mono text-[11px] uppercase tracking-[0.2em] text-bone-500 sm:text-xs"
@@ -29,22 +29,33 @@ const presenters = founders.map((f) => f.name).join(" & ");
       <div>
         <h2
           class="text-5xl font-extrabold leading-[0.98] tracking-tightest md:text-7xl"
-          style="font-size: clamp(2.25rem, 8.5cqw, 7rem);"
+          style="font-size: max(2.25rem, 8.5cqw);"
         >
           Expected a deck?
         </h2>
         <p
           class="mt-4 text-lg text-bone-300 print-muted"
-          style="font-size: clamp(1rem, 2.4cqw, 1.75rem);"
+          style="font-size: max(1rem, 2.4cqw);"
         >
           This company profile is a website, on purpose.
         </p>
         <p
           class="mt-3 max-w-[60ch] text-base leading-relaxed text-bone-500 print-muted"
-          style="font-size: clamp(0.9rem, 1.6cqw, 1.25rem);"
+          style="font-size: max(0.9rem, 1.6cqw);"
         >
           AI engines can't read a deck sitting in an inbox. They can read a
           website, and that's where your customers are now looking.
+        </p>
+        <p
+          class="mt-4 font-mono text-xs text-bone-500 print-muted"
+          style="font-size: max(0.7rem, 1.05cqw);"
+        >
+          This is our company profile. Our main website is
+          <a
+            href="https://noorrank.com"
+            class="text-bone-50 underline underline-offset-4 hover:text-signal"
+            rel="noopener">noorrank.com →</a
+          >
         </p>
       </div>
 
@@ -54,20 +65,6 @@ const presenters = founders.map((f) => f.name).join(" & ");
         <span>Presented by {presenters}, Founders · Dubai · Kochi</span>
         <span class="text-bone-50">01</span>
       </div>
-    </div>
-
-    <div
-      class="cover-extras rounded-lg border border-bone-500/15 bg-ink-800 px-4 py-3 text-sm leading-relaxed text-bone-300 print-muted"
-    >
-      <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-bone-500">Notes</p>
-      <p class="mt-1">
-        This is our company profile; our main website is
-        <a
-          href="https://noorrank.com"
-          class="text-bone-50 underline underline-offset-4 hover:text-signal"
-          rel="noopener">noorrank.com →</a
-        >
-      </p>
     </div>
 
     <div class="cover-extras no-print flex flex-wrap items-center gap-4">
@@ -94,11 +91,13 @@ const presenters = founders.map((f) => f.name).join(" & ");
 </section>
 
 <script>
-  // Presentation mode: full screen, one slide per key press. Optional
-  // enhancement only; the page reads the same without it.
+  // Slideshow behaviour. On wide screens (the same "deck" media query as the
+  // CSS) arrow keys / space step one slide; Present or F adds full screen.
+  // Optional enhancement only; the page reads the same without it.
   const root = document.documentElement;
   const btn = document.getElementById("present-btn");
   const canPresent = document.fullscreenEnabled;
+  const deck = window.matchMedia("(min-width: 900px) and (min-aspect-ratio: 5/4)");
   if (btn && canPresent) btn.hidden = false;
 
   const slides = () =>
@@ -132,7 +131,7 @@ const presenters = founders.map((f) => f.name).join(" & ");
 
   const toggle = () => {
     if (document.fullscreenElement) document.exitFullscreen();
-    else root.requestFullscreen();
+    else root.requestFullscreen().catch(() => {});
   };
 
   btn?.addEventListener("click", toggle);
@@ -143,6 +142,9 @@ const presenters = founders.map((f) => f.name).join(" & ");
     requestAnimationFrame(() => go(i, false));
   });
 
+  const interactive = (t: EventTarget | null) =>
+    t instanceof HTMLElement && !!t.closest("a, button, input, textarea, select");
+
   document.addEventListener("keydown", (e) => {
     if (e.ctrlKey || e.metaKey || e.altKey) return;
     if (e.key === "f" || e.key === "F") {
@@ -151,7 +153,8 @@ const presenters = founders.map((f) => f.name).join(" & ");
       toggle();
       return;
     }
-    if (!root.classList.contains("presenting")) return;
+    if (!root.classList.contains("presenting") && !deck.matches) return;
+    if (e.key === " " && interactive(e.target)) return;
     if (["ArrowDown", "ArrowRight", "PageDown", " "].includes(e.key)) {
       e.preventDefault();
       go(base() + 1);

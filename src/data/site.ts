@@ -28,7 +28,7 @@ export const beliefs = [
   {
     n: "01",
     title: "The Audience Changed",
-    body: "Brands understood by machines will own the next decade. Brands that only speak to humans will quietly vanish from the conversation — not beaten, just never mentioned.",
+    body: "Brands understood by machines will own the next decade. Brands that only speak to humans will quietly vanish from the conversation. Not beaten, just never mentioned.",
   },
 ];
 
@@ -56,7 +56,7 @@ export const visibility = {
 export const alsoBuild = [
   {
     title: "Systems you own",
-    body: "NoorRank runs almost entirely on tools we built ourselves, so we build them for clients too: billing, licensing, payments, booking and patient platforms — like the teleconsultation platform for Meet My Specialist and PayCore for ClariPi. You keep everything we build, even if you walk away.",
+    body: "NoorRank runs almost entirely on tools we built ourselves, so we build them for clients too: billing, licensing, payments, booking and patient platforms, like the teleconsultation platform for Meet My Specialist and PayCore for ClariPi. You keep everything we build, even if you walk away.",
   },
   {
     title: "AI strategy",
@@ -75,10 +75,10 @@ export const miracleBerry = {
   subtitle: "A 21-day public experiment: Can you engineer AI recognition from absolute zero?",
   timeline: [
     { day: 1, label: "Google indexed noorranklabs.com", state: "up" },
-    { day: 9, label: "ChatGPT cited us as authoritative — ahead of all timelines", state: "up" },
+    { day: 9, label: "ChatGPT cited us as authoritative, ahead of all timelines", state: "up" },
     { day: 17, label: "Perplexity recognised the entity", state: "up" },
     { day: 19, label: "Perplexity dropped us entirely", state: "down" },
-    { day: 20, label: "Perplexity returned — stronger", state: "up" },
+    { day: 20, label: "Perplexity returned, stronger", state: "up" },
     { day: 21, label: "2 of 3 platforms citing. ChatGPT: 11 consecutive days", state: "peak" },
   ],
   lessons: [
@@ -101,7 +101,7 @@ export const nura = {
     { value: "59 of 59", label: "Schema blocks valid" },
     { value: "6 of 6", label: "Centres fully marked up" },
   ],
-  note: "Logged-out test. Figures verified live against nura.in, Aug–Sep 2026.",
+  note: "Logged-out test. Figures verified live against nura.in, Aug to Sep 2026.",
 };
 
 export const clients = [

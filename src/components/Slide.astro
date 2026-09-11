@@ -14,7 +14,7 @@ const { id } = Astro.props;
   class="deck-slide px-4 py-3 md:px-10 deck:flex deck:min-h-[100svh] deck:snap-start deck:items-center deck:justify-center"
 >
   <div
-    class="slide-frame print-slide relative mx-auto flex w-full max-w-[76rem] flex-col rounded-xl border border-bone-500/25 bg-black shadow-2xl shadow-black/60 deck:aspect-video deck:w-[min(100%,76rem,calc((100svh_-_2rem)*16/9))]"
+    class="slide-frame print-slide relative mx-auto flex w-full max-w-[76rem] flex-col rounded-xl border border-bone-500/25 bg-black shadow-2xl shadow-black/60 deck:aspect-video deck:w-[min(100%,calc((100svh_-_2rem)*16/9))] deck:max-w-none"
   >
     <div
       class="flex items-center justify-between gap-4 border-b border-bone-500/20 px-6 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-bone-500 sm:text-xs deck:px-[5cqw]"
